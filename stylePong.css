@@ -1,6 +1,6 @@
 ﻿#canvas {
     border: 2px solid #ffffff;
-    box-shadow: 10px 10px 10em rgb(0, 238, 255), -10px -10px 10em rgb(0, 238, 255), -10px 10px 10em rgb(0, 238, 255), 10px -10px 1em rgb(0, 238, 255);
+    box-shadow: 2px 2px 2em rgb(0, 238, 255), -2px -2px 2em rgb(0, 238, 255), -2px 2px 2em rgb(0, 238, 255), 2px -2px 2em rgb(0, 238, 255);
 }
 body{
     background-color: black;
@@ -14,7 +14,7 @@ body{
     text-align:center;
     margin-left:30px;
     font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 40px;
+    font-size: 35px;
 }
 header{
     background-color: black;
@@ -22,6 +22,7 @@ header{
     border-radius: 30px;
     padding-left:0px;
 }
+
 h1{
     color:white;
     background-color: black;
@@ -39,7 +40,17 @@ h1{
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
+    transition-property: width height font-size margin-top;
+    transition-duration: 0.5s;
 }
+.chose-difficult:hover{
+    width: 300px;
+    height: 400px;
+    font-size: 30px;
+    margin-top: 10px;
+
+}
+
 .chose-mode{
     border: 1px solid white;
     width: 250px;
@@ -53,6 +64,15 @@ h1{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
     position:center;
+    transition-property: width height font-size margin-top;
+    transition-duration: 0.5s;
+}
+.chose-mode:hover{
+    width: 300px;
+    height: 400px;
+    font-size: 30px;
+    margin-top: -420px;
+
 }
 .botao_play{
     border: 2px solid #ffffff;
@@ -65,6 +85,7 @@ h1{
     font-size:19px;
     color: white;
     box-shadow: 2px 2px 1em rgb(0, 238, 255), -2px -2px 1em rgb(0, 238, 255);
+    
 }
 .botao_play:hover{
     background-color: rgb(0, 238, 255);
@@ -87,5 +108,69 @@ h1{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
     position:center;
+    transition-property: width height font-size margin-top;
+    transition-duration: 0.5s;
+}
+.chose-element:hover{
+    width: 300px;
+    height: 400px;
+    font-size: 30px;
+    margin-top: -420px;
 
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(0, 238, 255);
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(19, 133, 141);
+    border-radius: 30px;
+}
+#nivel-dificuldade{
+    border: transparent;
+    border-radius: 30px;
+    width:100px;
+    height: 40px;
+    font-size: 20px;
+    text-align:center;
+}
+.selecao_dificuldade{
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    width: 180px;
+    height: 50px;
+    margin-top: 40px;
+    background-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:19px;
+    color: white;
+    box-shadow: 2px 2px 1em rgb(0, 238, 255), -2px -2px 1em rgb(0, 238, 255);
+    
+}
+.selecao_dificuldade:hover{
+    background-color: rgb(0, 238, 255);
+    color:white;
+    transition: 0.7s;
+}
+.selecao_dificuldade_reset{
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    width: 180px;
+    height: 50px;
+    margin-top: 40px;
+    background-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:19px;
+    color: white;
+    box-shadow: 2px 2px 1em rgb(0, 238, 255), -2px -2px 1em rgb(0, 238, 255);
+    display: none;
+    
+}
+.selecao_dificuldade_reset:hover{
+    background-color: rgb(0, 238, 255);
+    color:white;
+    transition: 0.7s;
 }

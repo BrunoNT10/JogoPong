@@ -12,10 +12,49 @@ var canvas, context,
     bolaTempo,
     velocidadeJogador, velocidadeOponente,
     velocidadeBola,
-    pontosJogador, pontosOponente;
+    pontosJogador, pontosOponente, dificuldade, dificuldade_jogo;
 
+function selecao_dificuldade(){
+    dificuldade = document.getElementById("nivel-dificuldade");
+    dificuldade.setAttribute('readOnly', '');
+    dificuldade = dificuldade.value;
+    botao_concluido = document.getElementById("selecionar-dificuldade")
+    acionar_botao_reset = document.getElementById("reset-selecionar-dificuldade");
+    acionar_botao_reset.style.display = 'block';
+    botao_concluido.style.background = "green"
+    console.log(dificuldade);
+    if(dificuldade == ''){
+        alert("Selecione um nível de dificuldade primeiro")
+        velocidadeBola = 0;
+        velocidadeJogador = 0;
+        velocidadeOponente = 0;
+        console.log("if")
+    }
+    else{
+        calcula_dificuldade(dificuldade)
+        
+    }
+}
+function reset_selecao_dificuldade(){
+    console.log("funcao acessada")
+    dificuldade = document.getElementById("nivel-dificuldade");
+    dificuldade.removeAttribute('readOnly');
+    botao_concluido.style.background = 'black';
+}
+function calcula_dificuldade(dificuldade){
+    velocidadeBola = dificuldade * 10;
+    velocidadeJogador = dificuldade * 10;
+    velocidadeOponente = dificuldade * 10;
+    console.log(velocidadeBola)
+    return velocidadeBola;
+}
 function iniciarJogo() {
-
+    mostra_jogo = document.getElementById("jogo-pong")
+    mostra_jogo.style.display = 'block';
+    esconde_menu = document.getElementById("menu")
+    esconde_menu.style.display = 'none'
+    var dados = calcula_dificuldade(dificuldade)
+    console.log(dados.value)
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
 
@@ -39,9 +78,6 @@ function iniciarJogo() {
     bolaParaDireita = false;
     bolaAngulo = Math.floor(Math.random() * 21) - 10; // faz bola ir para uma direção aleatória.
     bolaTempo = 0;
-    velocidadeJogador = 15;
-    velocidadeOponente = 30;
-    velocidadeBola = 10;
     pontosJogador = 0;
     pontosOponente = 0;
 
@@ -216,7 +252,6 @@ function loopGame() {
     context.stroke();
     context.closePath();
 }
-
 
 /****************************** FUNÇÃO DO JQUERY *****************************/ 
 $(function () {

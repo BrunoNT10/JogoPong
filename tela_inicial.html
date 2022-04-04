@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylePong.css">
     <script src='script.js'></script>
+    <script src='jquery.js'></script>
     <title>Jogo Pong</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <p>JOGO PONG</p>
-        </div>
-    </header>
-    <div class="elements">
+    <div class="elements" id="menu">
+        <header>
+            <div class="container">
+                <p>JOGO PONG</p>
+            </div>
+        </header>
         <div class="chose-difficult">
             <p style="color: white">Selecione o nível de dificuldade</p>
+            <input type="number" id="nivel-dificuldade"><br>
+            <button class="selecao_dificuldade" onclick="selecao_dificuldade()" id="selecionar-dificuldade"> CONCLUÍDO </button>
+            <button class="selecao_dificuldade_reset" onclick="reset_selecao_dificuldade()" id="reset-selecionar-dificuldade"> RESET </button>
+        
         </div>
         <div class="chose-mode">
             <p style="color: white">Selecione o modo de jogo</p><br>
@@ -38,9 +43,18 @@
                 <img src="img_one_player.png" style="width:100px; cursor:pointer;">
             </a>
         </div>
+        <div class="button_start">
+            <a onclick="iniciarJogo()"><button class="botao_play"> Jogar </button></a>
+        </div>
     </div><br>
-    <div class="button_start">
-    <a href='index.html'><button class="botao_play"> Jogar </button></a>
+    
+    <div class="container1" style="display:none; margin-top:50px;" id="jogo-pong">
+        <label id="mensagem_vencedor"></label>
+        <canvas id="canvas" width="800" height="480">
+            Navegador não suportado :c
+        </canvas>
     </div>
+    </body>
+    </body>
 </body>
 </html>
