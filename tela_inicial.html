@@ -34,14 +34,9 @@
             </a>
         </div>
         <div class="chose-element">
-            <p style="color: white">Selecione o modo de jogo</p><br>
-            <a onclick="multiplayer()">
-                <img src="img_multiplayer.png" style="width: 100px; cursor:pointer;">
-            </a>
-            <label style="color:black">.</label>
-            <a onclick="oneplayer()">
-                <img src="img_one_player.png" style="width:100px; cursor:pointer;">
-            </a>
+            <p style="color: white">Selecione a cor de fundo do game, clique no retângulo abaixo</p>
+            <input type="color"><br>
+            <button class="selecao_dificuldade"> SELECIONAR </button>
         </div>
         <div class="button_start">
             <a onclick="iniciarJogo()"><button class="botao_play"> Jogar </button></a>
@@ -52,7 +47,8 @@
         <label id="mensagem_vencedor"></label>
         <canvas id="canvas" width="800" height="480">
             Navegador não suportado :c
-        </canvas>
+        </canvas><br>
+        <button class="botao_play" onclick="acessar_menu()"> MENU </button>
     </div>
     </body>
     </body>

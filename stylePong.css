@@ -166,7 +166,6 @@ h1{
     font-size:19px;
     color: white;
     box-shadow: 2px 2px 1em rgb(0, 238, 255), -2px -2px 1em rgb(0, 238, 255);
-    display: none;
     
 }
 .selecao_dificuldade_reset:hover{
