@@ -180,26 +180,26 @@ function loopGame() {
 
 
     /****************************** JOGADOR *****************************/  
-    if (teclaCimaPressionada != teclaBaixoPressionada) { // se o usuário precionar para cima
-        if (teclaCimaPressionada) { // se for para cima pressionado
-            const som = new Audio('som_jogo.mp3')
-            som.play();
-            if (oponentePosY > 0) { // se a bola não sair da tela
-                oponentePosY -= velocidadeJogador; // muda posição do jogador
-            }
-        }
-        else { // se for para baixo 
-            const som = new Audio('som_jogo.mp3')
-            som.play();
-            if (oponentePosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
-                oponentePosY += velocidadeJogador; // muda posição
-            }
-        }
-    }
-
     
     /****************************** OPONENTE *****************************/  
     if (multiplayer_selected == true){
+        if (teclaCimaPressionada != teclaBaixoPressionada) { // se o usuário precionar para cima
+            if (teclaCimaPressionada) { // se for para cima pressionado
+                const som = new Audio('som_jogo.mp3')
+                som.play();
+                if (oponentePosY > 0) { // se a bola não sair da tela
+                    oponentePosY -= velocidadeJogador; // muda posição do jogador
+                }
+            }
+            else { // se for para baixo 
+                const som = new Audio('som_jogo.mp3')
+                som.play();
+                if (oponentePosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
+                    oponentePosY += velocidadeJogador; // muda posição
+                }
+            }
+        }
+    
         console.log("multiplayer")
         if (teclaWPressionada != teclaSPressionada) { // se o usuário precionar para cima
             if (teclaWPressionada) { // se for para cima pressionado
@@ -215,6 +215,23 @@ function loopGame() {
         }
     }
     else{
+        if (teclaCimaPressionada != teclaBaixoPressionada) { // se o usuário precionar para cima
+            if (teclaCimaPressionada) { // se for para cima pressionado
+                const som = new Audio('som_jogo.mp3')
+                som.play();
+                if (jogadorPosY > 0) { // se a bola não sair da tela
+                    jogadorPosY -= velocidadeJogador; // muda posição do jogador
+                }
+            }
+            else { // se for para baixo 
+                const som = new Audio('som_jogo.mp3')
+                som.play();
+                if (jogadorPosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
+                    jogadorPosY += velocidadeJogador; // muda posição
+                }
+            }
+        }
+    
         if (oponenteParaCima) { // caso o oponente estiver indo para cima
             oponentePosY -= velocidadeOponente;
             if (oponentePosY <= 0) // se a bola estiver saindo da tela
