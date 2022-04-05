@@ -32,11 +32,12 @@
             <a onclick="oneplayer()">
                 <img src="img_one_player.png" style="width:100px; cursor:pointer;">
             </a>
+            <p id="resposta_player"></p>
         </div>
         <div class="chose-element">
             <p style="color: white">Selecione a cor de fundo do game, clique no retângulo abaixo</p>
-            <input type="color"><br>
-            <button class="selecao_dificuldade"> SELECIONAR </button>
+            <input type="color" id="select-color"><br>
+            <button class="selecao_dificuldade" onclick="selecionar_cor()"> SELECIONAR </button>
         </div>
         <div class="button_start">
             <a onclick="iniciarJogo()"><button class="botao_play"> Jogar </button></a>

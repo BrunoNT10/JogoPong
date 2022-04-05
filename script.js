@@ -56,9 +56,17 @@ function calcula_dificuldade(dificuldade){
 }
 function multiplayer(){
     multiplayer_selected = true;
+    document.getElementById('resposta_player').innerHTML = 'Modo multiplayer'
+   
 }
 function oneplayer(){
     multiplayer_selected = false;
+    document.getElementById('resposta_player').innerHTML = 'Modo one player'
+}
+function selecionar_cor(){
+    var color = document.getElementById('select-color').value
+    var cor_fundo = document.getElementById('canvas')
+    cor_fundo.style.background = color
 }
 function iniciarJogo() {
     mostra_jogo = document.getElementById("jogo-pong")
@@ -156,11 +164,15 @@ function loopGame() {
     /****************************** JOGADOR *****************************/  
     if (teclaCimaPressionada != teclaBaixoPressionada) { // se o usuário precionar para cima
         if (teclaCimaPressionada) { // se for para cima pressionado
+            const som = new Audio('som_jogo.mp3')
+            som.play();
             if (jogadorPosY > 0) { // se a bola não sair da tela
                 jogadorPosY -= velocidadeJogador; // muda posição do jogador
             }
         }
         else { // se for para baixo 
+            const som = new Audio('som_jogo.mp3')
+            som.play();
             if (jogadorPosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
                 jogadorPosY += velocidadeJogador; // muda posição
             }
@@ -278,7 +290,8 @@ function loopGame() {
     }
 
     if (pontosA == 10){
-        
+        const music = new Audio('aplausos.mp3')
+        music.play();
         pontosJogador = 0;
         pontosOponente = 0;
         setTimeout(function(){
@@ -286,11 +299,12 @@ function loopGame() {
         }, 1000);
     }
     else if(pontosB == 10){
-        alert("B venceu")
+        const music = new Audio('aplausos.mp3')
+        music.play();
         pontosJogador = 0;
         pontosOponente = 0;
         setTimeout(function(){
-            alert("A venceu")
+            alert("B venceu")
         }, 1000);
     }
 
