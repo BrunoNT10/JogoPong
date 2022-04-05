@@ -12,8 +12,8 @@ var canvas, context,
     bolaTempo,
     velocidadeJogador, velocidadeOponente,
     velocidadeBola,
-    pontosJogador, pontosOponente, dificuldade, dificuldade_jogo
-    multiplayer_selected, teclaWPressionada, teclaSPressionada;
+    pontosJogador, pontosOponente, dificuldade, dificuldade_jogo,
+    multiplayer_selected, teclaWPressionada, teclaSPressionada, cor_selecionada, dificuldade_selecionada;
 
 function selecao_dificuldade(){
     dificuldade = document.getElementById("nivel-dificuldade");
@@ -21,6 +21,7 @@ function selecao_dificuldade(){
     dificuldade = dificuldade.value;
     botao_concluido = document.getElementById("selecionar-dificuldade")
     botao_concluido.style.background = "green"
+    dificuldade_selecionada = true;
     console.log(dificuldade);
     if(dificuldade == ''){
         alert("Selecione um nível de dificuldade primeiro")
@@ -65,12 +66,24 @@ function oneplayer(){
 }
 function selecionar_cor(){
     var color = document.getElementById('select-color').value
+    var mensagem_cor = document.getElementById('resposta-cor')
+    cor_selecionada = true;
+    mensagem_cor.innerHTML = "Cor selecionada"
     var cor_fundo = document.getElementById('canvas')
     cor_fundo.style.background = color
+   
 }
+
 function iniciarJogo() {
+    console.log(cor_selecionada)
     if(multiplayer_selected != true && multiplayer_selected != false){
-        console.log("selecione o modo de jogo");
+        alert("Selecione o modo de jogo");
+    }
+    else if(cor_selecionada != true){
+        alert("Selecione a cor de fundo")
+    }
+    else if(dificuldade_selecionada != true){
+        alert("Selecione a dificuldade")
     }
     else{
     mostra_jogo = document.getElementById("jogo-pong")
@@ -109,8 +122,8 @@ function iniciarJogo() {
     //Mantém a tecla como "falso" para não realizar ação
     document.addEventListener('keyup', keyUp, false);
     document.addEventListener('keydown', keyDown, false);
-    document.addEventListener('S', keyS, false);
-    document.addEventListener('W', keyW, false);
+    document.addEventListener('keydown', keyS, false);
+    document.addEventListener('keyup', keyW, false);
     
 
     setInterval(loopGame, 30);
@@ -171,15 +184,15 @@ function loopGame() {
         if (teclaCimaPressionada) { // se for para cima pressionado
             const som = new Audio('som_jogo.mp3')
             som.play();
-            if (jogadorPosY > 0) { // se a bola não sair da tela
-                jogadorPosY -= velocidadeJogador; // muda posição do jogador
+            if (oponentePosY > 0) { // se a bola não sair da tela
+                oponentePosY -= velocidadeJogador; // muda posição do jogador
             }
         }
         else { // se for para baixo 
             const som = new Audio('som_jogo.mp3')
             som.play();
-            if (jogadorPosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
-                jogadorPosY += velocidadeJogador; // muda posição
+            if (oponentePosY < (canvas.height - barraHeigth)) { // se a bola não saiu da tela
+                oponentePosY += velocidadeJogador; // muda posição
             }
         }
     }
@@ -264,8 +277,7 @@ function loopGame() {
         if (bolaTempo >= 50) { // se o tempo de deixar a bola invisível passou 
             if (bolaPosX <= - bolaRaio) { // se bola saiu na esquerda 
                 pontosOponente++;
-                const som_grito = new Audio('grito.mp3')
-                som_grito.play()
+        
             }
             else { // se bola saiu na direita 
                 pontosJogador++;
