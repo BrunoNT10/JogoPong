@@ -69,6 +69,10 @@ function selecionar_cor(){
     cor_fundo.style.background = color
 }
 function iniciarJogo() {
+    if(multiplayer_selected != true && multiplayer_selected != false){
+        console.log("selecione o modo de jogo");
+    }
+    else{
     mostra_jogo = document.getElementById("jogo-pong")
     mostra_jogo.style.display = 'block';
     esconde_menu = document.getElementById("menu")
@@ -110,6 +114,7 @@ function iniciarJogo() {
     
 
     setInterval(loopGame, 30);
+    }
 }
 
 //Verificação - Pressionando as teclas (Consulte as keys)
@@ -259,6 +264,8 @@ function loopGame() {
         if (bolaTempo >= 50) { // se o tempo de deixar a bola invisível passou 
             if (bolaPosX <= - bolaRaio) { // se bola saiu na esquerda 
                 pontosOponente++;
+                const som_grito = new Audio('grito.mp3')
+                som_grito.play()
             }
             else { // se bola saiu na direita 
                 pontosJogador++;
